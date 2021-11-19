@@ -1,0 +1,26 @@
+@use '../abstract/colors' as *;
+
+body {
+  background: $primary;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Bellefair', Georgia, 'Times New Roman', Times, serif;
+  line-height: 110%;
+  text-transform: uppercase;
+  color: $white;
+}
+
+h5 {
+  font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
+  line-height: 110%;
+  color: $white;
+}
+
+p {
+  font-family: 'Barlow', Arial, Helvetica, sans-serif sans-serif;
+  color: $white;
+}

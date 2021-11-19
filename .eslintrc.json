@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
+  "rules": {
+    // override/add rules settings here, such as:
+    // 'vue/no-unused-vars': 'error'
+    "vue/html-indent": [
+      "error",
+      2,
+      {
+        // "attribute": 1,
+        // "baseIndent": 1
+        // "closeBracket": 0,
+        // "alignAttributesVertically": true,
+        // "ignores": []
+      }
+    ],
+    "vue/multi-word-component-names": 0,
+    "vue/html-self-closing": 0
+  }
+}
