@@ -23,4 +23,9 @@ h5 {
 p {
   font-family: 'Barlow', Arial, Helvetica, sans-serif sans-serif;
   color: $white;
+  max-width: 65ch;
+}
+
+a {
+  font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
 }

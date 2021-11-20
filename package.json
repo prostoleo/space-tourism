@@ -1,22 +1,25 @@
 {
-	"name": "prostoleo-space-tourism",
-	"version": "0.0.0",
-	"scripts": {
-		"dev": "vite --host",
-		"build": "vite build",
-		"serve": "vite preview"
-	},
-	"dependencies": {
-		"vue": "^3.2.16",
-		"vue-router": "^4.0.12"
-	},
-	"devDependencies": {
-		"@vitejs/plugin-vue": "^1.9.3",
-		"eslint": "^8.2.0",
-		"eslint-config-prettier": "^8.3.0",
-		"eslint-plugin-vue": "^8.1.1",
-		"prettier": "^2.4.1",
-		"sass": "^1.43.4",
-		"vite": "^2.6.4"
-	}
+  "name": "prostoleo-space-tourism",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.16",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "autoprefixer": "^10.4.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-vue": "^8.1.1",
+    "postcss-load-config": "^3.1.0",
+    "postcss-plugin": "^1.0.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.43.4",
+    "vite": "^2.6.4"
+  }
 }
