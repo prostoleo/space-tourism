@@ -18,25 +18,45 @@
         >
           <ul class="nav__list">
             <li class="nav__item">
-              <router-link class="nav__link" to="/" tabindex="0">
+              <router-link
+                class="nav__link"
+                to="/"
+                tabindex="0"
+                @click="closeMenu"
+              >
                 <span>00</span>
                 home
               </router-link>
             </li>
             <li class="nav__item">
-              <router-link class="nav__link" to="/destination" tabindex="0">
+              <router-link
+                class="nav__link"
+                to="/destination"
+                tabindex="0"
+                @click="closeMenu"
+              >
                 <span>01</span>
                 destination
               </router-link>
             </li>
             <li class="nav__item">
-              <router-link class="nav__link" to="/crew" tabindex="0">
+              <router-link
+                class="nav__link"
+                to="/crew"
+                tabindex="0"
+                @click="closeMenu"
+              >
                 <span>02</span>
                 crew
               </router-link>
             </li>
             <li class="nav__item">
-              <router-link class="nav__link" to="/technology" tabindex="0">
+              <router-link
+                class="nav__link"
+                to="/technology"
+                tabindex="0"
+                @click="closeMenu"
+              >
                 <span>03</span>
                 technology
               </router-link>
@@ -67,6 +87,7 @@ import { ref } from 'vue';
 const isMenuOpened = ref(false);
 
 const toggleMenu = () => (isMenuOpened.value = !isMenuOpened.value);
+const closeMenu = () => (isMenuOpened.value = false);
 </script>
 
 <style lang="scss" scoped>
