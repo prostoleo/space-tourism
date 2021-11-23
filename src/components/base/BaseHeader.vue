@@ -10,7 +10,7 @@
           />
         </router-link>
 
-        <hr class="hr" />
+        <div class="hr" />
 
         <nav
           class="header__nav nav backdrop-blur"
@@ -128,9 +128,10 @@ const closeMenu = () => (isMenuOpened.value = false);
 
     @include mq(xlg) {
       display: block;
-      color: hsla(0, 0%, 59%, 25.15%);
+      background-color: hsla(0, 0%, 59%, 0.25);
 
       width: 50%;
+      height: 1px;
       transform: translateX(12%);
       position: relative;
       z-index: 1;
@@ -259,6 +260,12 @@ const closeMenu = () => (isMenuOpened.value = false);
       flex-direction: row;
       gap: 1.5rem;
     }
+
+    @include mq(xlg) {
+      padding: unset;
+      flex-direction: row;
+      gap: 5rem;
+    }
   }
 
   // .nav__item
@@ -290,6 +297,12 @@ const closeMenu = () => (isMenuOpened.value = false);
 
       span {
         display: none;
+      }
+    }
+
+    @include mq(xlg) {
+      span {
+        display: inline;
       }
     }
 

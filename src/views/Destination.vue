@@ -29,39 +29,43 @@
             <!-- :css="false" -->
             <div class="tab__content">
               <div class="tab__img">
-                <source
-                  :srcset="curDestination?.img.webp"
-                  :alt="curDestination?.img.altText"
-                />
-                <img
-                  :src="curDestination?.img.png"
-                  :alt="curDestination?.img.altText"
-                />
+                <picture>
+                  <source
+                    :srcset="curDestination?.img.webp"
+                    :alt="curDestination?.img.altText"
+                  />
+                  <img
+                    :src="curDestination?.img.png"
+                    :alt="curDestination?.img.altText"
+                  />
+                </picture>
               </div>
 
-              <div class="tab__text">
-                <h2 class="tab__title">
-                  {{ curDestination?.title }}
-                </h2>
-                <p class="tab__description">
-                  {{ curDestination?.description }}
-                </p>
-              </div>
-
-              <hr class="tab__divider" />
-
-              <div class="tab__info info">
-                <div class="info__item">
-                  <h3 class="info__subtitle">avg. distance</h3>
-                  <h4 class="info__title">
-                    {{ curDestination?.avgDistance }}
-                  </h4>
+              <div class="tab__text-wrapper">
+                <div class="tab__text">
+                  <h2 class="tab__title">
+                    {{ curDestination?.title }}
+                  </h2>
+                  <p class="tab__description">
+                    {{ curDestination?.description }}
+                  </p>
                 </div>
-                <div class="info__item">
-                  <h3 class="info__subtitle">est. travel time</h3>
-                  <h4 class="info__title">
-                    {{ curDestination?.travelTime }}
-                  </h4>
+
+                <!-- <hr class="tab__divider" /> -->
+
+                <div class="tab__info info">
+                  <div class="info__item">
+                    <h3 class="info__subtitle">avg. distance</h3>
+                    <h4 class="info__title">
+                      {{ curDestination?.avgDistance }}
+                    </h4>
+                  </div>
+                  <div class="info__item">
+                    <h3 class="info__subtitle">est. travel time</h3>
+                    <h4 class="info__title">
+                      {{ curDestination?.travelTime }}
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -100,15 +104,15 @@ function enter(el, done) {
       x: '110%',
     }) */
     .to(el, {
-      duration: 5,
+      duration: 1,
       x: 0,
-      // ease: 'elastic.inOut(2.5, 1)',
+      ease: 'Power2.easeOut',
       // onComplete: done,
     });
 }
-function leave(el) {
+/* function leave(el) {
   gsap.to(el, {
-    duration: 5,
+    duration: 1,
     // scaleX: 1,
     // scaleY: 1,
     x: '-110%',
@@ -122,14 +126,14 @@ function leave(el) {
   //   opacity: 0,
   //   // onComplete: done,
   // });
-}
+} */
 
-function beforeLeave(el) {
+/* function beforeLeave(el) {
   gsap.set(el, {
     x: 0,
     onComplete: leave(el),
   });
-}
+} */
 
 const active = ref(0);
 
@@ -186,6 +190,16 @@ export default {
   padding-top: 8.8rem;
   padding-bottom: 5.8rem;
 
+  @include mq(med) {
+    padding-top: 12.8rem;
+  }
+
+  @include mq(xlg) {
+    padding-top: 21.2rem;
+    padding-bottom: 11.8rem;
+    min-height: unset;
+  }
+
   // .destination__content
 
   &__content {
@@ -208,6 +222,15 @@ export default {
       font-weight: 600;
       opacity: 25%;
     }
+
+    @include mq(med) {
+      text-align: left;
+    }
+
+    @include mq(xlg) {
+      font-size: 2.8rem;
+      margin-left: 4%;
+    }
   }
 
   // .destination__tabs
@@ -217,6 +240,14 @@ export default {
 }
 .tab {
   position: relative;
+
+  /* @include mq(xlg) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 15rem;
+  } */
+
   // .tab__controlers
 
   &__controlers {
@@ -236,6 +267,17 @@ export default {
     // top: 220px;
     transform: translateY(22rem);
     z-index: 2;
+
+    @include mq(med) {
+      transform: translateY(35rem);
+    }
+
+    @include mq(xlg) {
+      display: inline-flex;
+      gap: 3.5rem;
+      transform: translate(21rem, 7rem);
+      // position: absolute;
+    }
   }
 
   // .tab__btn
@@ -249,10 +291,14 @@ export default {
 
     padding-bottom: 0.786em;
 
-    color: $white;
+    color: $secondary;
     text-transform: uppercase;
 
     position: relative;
+
+    @include mq(med) {
+      font-size: 1.6rem;
+    }
 
     &::before {
       content: '';
@@ -278,11 +324,26 @@ export default {
       opacity: 1;
       transition: all 150ms ease-in-out;
     }
+
+    &:hover::before,
+    &:focus::before {
+      transform: scaleX(1);
+      opacity: 0.5;
+      transition: all 150ms ease-in-out;
+    }
   }
 
   // .tab__content
 
   &__content {
+    @include mq(xlg) {
+      margin-top: 6.4rem;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 15rem;
+    }
   }
 
   // .tab__img
@@ -292,6 +353,30 @@ export default {
     margin: 0 auto;
 
     margin-bottom: 7.7rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include mq(med) {
+      max-width: 30rem !important;
+    }
+
+    @include mq(xlg) {
+      max-width: 44.5rem !important;
+      margin-bottom: 0;
+    }
+  }
+
+  // .tab__text
+  &__text {
+    // .tab__text-wrapper
+    &-wrapper {
+      @include mq(xlg) {
+        text-align: left;
+      }
+    }
   }
 
   // .tab__title
@@ -301,6 +386,14 @@ export default {
     text-transform: uppercase;
 
     margin-bottom: 0.05em;
+
+    @include mq(med) {
+      font-size: 8rem;
+    }
+
+    @include mq(xlg) {
+      font-size: 10rem;
+    }
   }
 
   // .tab__description
@@ -317,6 +410,16 @@ export default {
 
     padding-bottom: 2em;
     border-bottom: 1px solid hsl(231, 15%, 26%);
+
+    @include mq(med) {
+      font-size: 1.6rem;
+    }
+
+    @include mq(xlg) {
+      max-width: 50ch;
+      font-size: 1.8rem;
+      padding-bottom: 3em;
+    }
   }
 
   // .tab__divider
@@ -338,6 +441,17 @@ export default {
   flex-direction: column;
 
   gap: 3rem;
+
+  @include mq(med) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include mq(xlg) {
+    justify-content: flex-start;
+    gap: 7.9rem;
+  }
 
   // .info__item
 

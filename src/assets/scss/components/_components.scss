@@ -1,0 +1,28 @@
+@use '../abstract/index' as *;
+
+%tpl-page-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+
+  letter-spacing: 16.875%;
+  color: $white;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  text-transform: uppercase;
+
+  @include mq(med) {
+    font-size: 2rem;
+  }
+
+  @include mq(xlg) {
+    font-size: 2.8rem;
+  }
+
+  span {
+    font-weight: 600;
+    opacity: 0.25;
+  }
+}
