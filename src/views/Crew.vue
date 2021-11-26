@@ -232,6 +232,22 @@ export default {
     @include mq(xlg) {
       // transform: scale(1.1, 1.1);
     }
+
+    img {
+      // width: 32.7rem;
+      // height: 22.3rem;
+      @include adaptive-value-min-max(max-height, 200, 280);
+      object-fit: contain;
+
+      @include mq(med) {
+        //  @include adaptive-min-max-value(max-height, 572, 280);
+        max-height: 57.2rem !important;
+      }
+
+      @include mq(xlg) {
+        max-height: unset !important;
+      }
+    }
   }
 
   // .tab__content

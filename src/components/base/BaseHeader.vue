@@ -4,9 +4,13 @@
       <div class="header__content">
         <router-link to="/" class="header__logo">
           <img
+            srcset="/icons/header-logo.svg 58w"
+            sizes="(max-width: 767px) 40px, 48px"
             src="/icons/header-logo.svg"
             alt="logo"
             class="header__logo-img"
+            width="40"
+            height="40"
           />
         </router-link>
 
@@ -120,6 +124,13 @@ const closeMenu = () => (isMenuOpened.value = false);
   &__logo {
     // .header__logo-img
     &-img {
+      width: 40px;
+      height: 40px;
+
+      @include mq(med) {
+        width: 48px;
+        height: 48px;
+      }
     }
   }
 

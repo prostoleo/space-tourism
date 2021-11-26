@@ -26,7 +26,7 @@ div.wrapper {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1.25s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 .fade-enter-from, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

@@ -303,8 +303,8 @@ export default {
     // padding: 0 0 100% 0;
     // padding-bottom: 45.33%;
     padding-bottom: 17rem;
-    margin-left: -4%;
-    width: 109%;
+    margin-left: -4.5%;
+    width: 110%;
 
     img {
       // width: 100%;
