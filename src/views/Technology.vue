@@ -56,14 +56,10 @@ import gsap from 'gsap';
 // import useAnimDestination from '@/composables/animation/useAnimDestination.js';
 
 const store = useStore();
-console.log('store: ', store);
 
 const tabContent = ref(null);
 
 //* анимация
-/* const { beforeEnter, enter, leave } = useAnimDestination(); 
-console.log('beforeEnter: ', beforeEnter);
-*/
 function beforeEnter(el) {
   gsap.set(el, {
     y: '40%',
@@ -72,8 +68,7 @@ function beforeEnter(el) {
   });
   // .then(() => enter(el));
 }
-function enter(el, done) {
-  console.log('done: ', done);
+function enter(el) {
   gsap
     /* .set(el, {
       x: '110%',
@@ -127,7 +122,6 @@ const setActive = (index) => {
 };
 
 const technologies = computed(() => store.getters.getTechnologies);
-console.log('technologies: ', technologies);
 
 const tech = computed(() =>
   technologies.value.find((el, index) => index === active.value)

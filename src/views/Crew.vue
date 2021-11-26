@@ -54,17 +54,12 @@
 import { computed, ref } from '@vue/reactivity';
 import { useStore } from 'vuex';
 import gsap from 'gsap';
-// import useAnimDestination from '@/composables/animation/useAnimDestination.js';
 
 const store = useStore();
-console.log('store: ', store);
 
 const tabContent = ref(null);
 
 //* анимация
-/* const { beforeEnter, enter, leave } = useAnimDestination(); 
-console.log('beforeEnter: ', beforeEnter);
-*/
 function beforeEnter(el) {
   gsap.set(el, {
     x: '110%',
@@ -72,8 +67,7 @@ function beforeEnter(el) {
   });
   // .then(() => enter(el));
 }
-function enter(el, done) {
-  console.log('done: ', done);
+function enter(el) {
   gsap
     /* .set(el, {
       x: '110%',
@@ -85,48 +79,17 @@ function enter(el, done) {
       // onComplete: done,
     });
 }
-/* function leave(el) {
-  gsap.to(el, {
-    duration: 1,
-    // scaleX: 1,
-    // scaleY: 1,
-    x: '-110%',
-    // ease: 'elastic.inOut(2.5, 1)',
-    onComplete: enter(el),
-    // onComplete: beforeEnter(el),
-  });
-  // gsap.to(el, {
-  //   duration: 0.2,
-  //   delay: 0.5,
-  //   opacity: 0,
-  //   // onComplete: done,
-  // });
-} */
-
-/* function beforeLeave(el) {
-  gsap.set(el, {
-    x: 0,
-    onComplete: leave(el),
-  });
-} */
 
 const active = ref(0);
 
 const setActive = (index) => {
-  // leave(tabContent.value, beforeEnter);
-  // leave(tabContent.value);
-
   //* работает
   beforeEnter(tabContent.value);
-  // beforeLeave(tabContent.value);
 
   active.value = index;
-  // beforeEnter(tabContent.value);
-  // enter(tabContent.value);
 };
 
 const crewMembers = computed(() => store.getters.getCrewMembers);
-console.log('crewMembers: ', crewMembers);
 
 const member = computed(() =>
   crewMembers.value.find((el, index) => index === active.value)
